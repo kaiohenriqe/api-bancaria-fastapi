@@ -11,4 +11,30 @@ Os endpoints são protegidos com **JWT** (login obrigatório).
 1. Clone o repositório:
    ```bash
    git clone https://github.com/kaiohenriqe/api-bancaria-fastapi.git
+   cd api-bancaria-fastapi
    ```
+   Crie e ative o ambiente virtual:
+   ```bash
+   python -m venv .venv
+   .venv\Scripts\activate   # Windows
+   source .venv/bin/activate # Linux/Mac
+   ```
+   Instale as dependências:
+   ```Bash
+   pip install -r requirements.txt
+   ```
+   Suba o servidor:
+   ```Bash
+   uvicorn main:app --reload
+   ```
+   📖 Docs automáticas:
+   ```Bash
+
+    Swagger: http://127.0.0.1:8000/docs
+    Redoc: http://127.0.0.1:8000/redoc
+   ```
+
+   
+
+   
+   
