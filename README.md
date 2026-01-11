@@ -11,8 +11,9 @@ Os endpoints são protegidos com **JWT** (login obrigatório).
 1. Clone o repositório:
    ```bash
    git clone https://github.com/kaiohenriqe/api-bancaria-fastapi.git
+   ```
    cd api-bancaria-fastapi
-    ```
+   ``
    Crie e ative o ambiente virtual:
     ```bash
     python -m venv .venv
