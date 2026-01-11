@@ -1,18 +1,14 @@
-from fastapi import FastAPI
-from dio_blog.controllers import post
-from dio_blog.database import Base, engine
-from dio_blog.models.post import Post  # type: ignore
-from sqlalchemy.orm import sessionmaker
+from fastapi import FastAPI, Depends
+from fastapi.security import OAuth2PasswordRequestForm
+import auth
+from routers import transacoes  # importa o router da pasta routers
 
+app = FastAPI(title="API Bancária Assíncrona")
 
-# Cria as tabelas no banco (uma vez só)
-Base.metadata.create_all(bind=engine)
+# incluir router de transações
+app.include_router(transacoes.router, prefix="/api", tags=["transacoes"])
 
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-app = FastAPI()
-app.include_router(post.router)
-
-@app.get("/")
-def read_root():
-    return {"message": "API RESTful Assíncrona online 🚀"}
+# endpoint de login
+@app.post("/login", response_model=auth.TokenResponse)
+async def login(form_data: OAuth2PasswordRequestForm = Depends()):
+    return await auth.login(form_data)

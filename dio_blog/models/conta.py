@@ -10,8 +10,8 @@ class ContaCorrente(Base):
     titular: Mapped[str] = mapped_column(sa.String(200), nullable=False)
     saldo: Mapped[float] = mapped_column(sa.Float, default=0.0)
 
-    # relação com transações
     transacoes: Mapped[list["Transacao"]] = relationship("Transacao", back_populates="conta")
+
 
 class Transacao(Base):
     __tablename__ = "transacoes"
