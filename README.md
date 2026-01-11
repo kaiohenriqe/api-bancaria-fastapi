@@ -33,8 +33,6 @@ Os endpoints são protegidos com **JWT** (login obrigatório).
     Swagger: http://127.0.0.1:8000/docs
     Redoc: http://127.0.0.1:8000/redoc
    ```
-
-   
-
+Projeto simples criado para estudos. Fique à vontade para dar um fork e contribuir com melhorias.
    
    
